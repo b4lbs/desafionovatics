@@ -1,12 +1,4 @@
-'''
-Resolvendo o Problema 2
-'''
-
-def verificaLinha(linha):
-        verificador = [i for i in linha if i != "."]
-        if len(verificador) != len(set(verificador)):
-                return False
-        return True
+from sys import exit
 
 board = [["5","3",".",".","7",".",".",".","."]
         ,["6",".",".","1","9","5",".",".","."]
@@ -18,26 +10,47 @@ board = [["5","3",".",".","7",".",".",".","."]
         ,[".",".",".","4","1","9",".",".","5"]
         ,[".",".",".",".","8",".",".","7","9"]]
 
-resultado = True
+tabela_valida = True
 
-# CHECK LINES
-for list in board:
-    if verificaLinha(list) == False:
-        resultado = False
+def verificadorLinha(lista):
+    for item in lista:
+        if item == ".":
+            continue
+        else: 
+            if lista.count(item) > 1:
+                return False  
+    return True
 
-# CHECK COLUMNS
-for i in range(9):
-    lista = []
-for j in range(9):
-    lista.append(board[j][i])
-if verificaLinha(lista) == False:
-    resultado = False
+for lista in board: 
+    if verificadorLinha(lista) == False:
+        print(False)
+        exit()
 
-# CHECK SQUARES
+
+for i in range(0,8):
+    coluna = []
+    for j in range(0,8):
+        coluna.append(board[j][i])
+    if verificadorLinha(coluna) == False:
+        print(False)
+        exit()
+
 for i in [0,3,6]:
     for j in [0,3,6]:
-        lista = [board[i][j], board[i+1][j], board[i+2][j], board[i][j+1], board[i+1][j+1], board[i+2][j+1], board[i][j+2], board[i+1][j+2], board[i+2][j+2]]
-if verificaLinha(lista) == False:
-    resultado = False
+        quadrado = [board[i][j], board[i+1][j], board[i+2][j], 
+                 board[i][j+1], board[i+1][j+1], board[i+2][j+1], 
+                 board[i][j+2], board[i+1][j+2], board[i+2][j+2]]
+if verificadorLinha(quadrado) == False:
+    print(False)
+    exit()
 
-print(resultado)
+print(tabela_valida)
+        
+
+
+
+
+
+
+
+
