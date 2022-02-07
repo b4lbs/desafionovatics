@@ -40,9 +40,9 @@ for i in [0,3,6]:
         quadrado = [board[i][j], board[i+1][j], board[i+2][j], 
                  board[i][j+1], board[i+1][j+1], board[i+2][j+1], 
                  board[i][j+2], board[i+1][j+2], board[i+2][j+2]]
-if verificadorLinha(quadrado) == False:
-    print(False)
-    exit()
+        if verificadorLinha(quadrado) == False:
+            print(False)
+            exit()
 
 print(tabela_valida)
         
