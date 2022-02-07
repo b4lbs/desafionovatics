@@ -40,9 +40,9 @@ for lista in board:
 
 
 # Verifica todas as colunas do board
-for i in range(0,8):
+for i in range(9):
     coluna = []
-    for j in range(0,8):
+    for j in range(9):
         coluna.append(board[j][i])
     if verificadorLinha(coluna) == False:
         print(False)
