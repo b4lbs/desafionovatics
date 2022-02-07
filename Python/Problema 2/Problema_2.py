@@ -1,4 +1,14 @@
+"""
+Resolvendo o Problema 2
+"""
+
+
 from sys import exit
+
+"""
+Utilizando a função exit() para que não haja necessidade de rodar o resto do código a partir do momento em que 
+se encontra que a tabela não é válida.
+"""
 
 board = [["5","3",".",".","7",".",".",".","."]
         ,["6",".",".","1","9","5",".",".","."]
@@ -12,6 +22,7 @@ board = [["5","3",".",".","7",".",".",".","."]
 
 tabela_valida = True
 
+# Verifica se há elementos repetidos em uma lista
 def verificadorLinha(lista):
     for item in lista:
         if item == ".":
@@ -21,12 +32,14 @@ def verificadorLinha(lista):
                 return False  
     return True
 
+# Verifica todas as linhas do board
 for lista in board: 
     if verificadorLinha(lista) == False:
         print(False)
         exit()
 
 
+# Verifica todas as colunas do board
 for i in range(0,8):
     coluna = []
     for j in range(0,8):
@@ -35,6 +48,7 @@ for i in range(0,8):
         print(False)
         exit()
 
+# Verifica os quadrados do board
 for i in [0,3,6]:
     for j in [0,3,6]:
         quadrado = [board[i][j], board[i+1][j], board[i+2][j], 
